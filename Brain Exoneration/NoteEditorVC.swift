@@ -11,15 +11,20 @@ class NoteEditorVC: UIViewController {
 
     @IBOutlet weak var noteTextView: UITextView!
     
+    var note: Note?
+    var didUserSave = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = .white
         
         let doneButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapDone))
-        
         navigationItem.rightBarButtonItem = doneButtonItem
         
+        if let note = note {
+            noteTextView.text = note.body
+            navigationItem.title = "Edit note"
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -28,17 +33,38 @@ class NoteEditorVC: UIViewController {
         noteTextView.becomeFirstResponder()
     }
     
-    @objc func didTapDone() {
-        print("Done")
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        if didUserSave == false {
+            saveNote()
+        }
+    }
+    
+    func saveNote() {
+        guard
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+            !noteTextView.text.isEmpty
+        else { return }
         
         let context = appDelegate.persistentContainer.viewContext
         
-        let newNote = Note(context: context)
-        newNote.body = noteTextView.text
+        if let note = note {
+            note.body = noteTextView.text
+        } else {
+            let newNote = Note(context: context)
+            newNote.body = noteTextView.text
+        }
         
         appDelegate.saveContext()
+    }
+    
+    @objc func didTapDone() {
+        print("Done")
+        
+        saveNote()
+        
+        didUserSave = true
         
         navigationController?.popViewController(animated: true)
         
