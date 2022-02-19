@@ -23,6 +23,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         loadNotes()
       }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadNotes()
+    }
+    
     func loadNotes() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
@@ -43,34 +48,36 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     
     @IBAction func didTapAdd(_ sender: Any) {
+        
+        performSegue(withIdentifier: "segue.Main.notesListToNoteEditor", sender: nil)
     
-        let alert = UIAlertController(title: "Add note", message: nil, preferredStyle: .alert)
-        alert.addTextField()
-        
-        let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
-            
-            guard
-                let noteBody = alert.textFields?.first?.text,
-                let appDelegate = UIApplication.shared.delegate as? AppDelegate
-            else { return }
-            
-            let context = appDelegate.persistentContainer.viewContext
-            
-            let newNote = Note(context: context)
-            newNote.body = noteBody
-            
-            self.notes.append(newNote)
-            self.tableView.reloadData()
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        
-        alert.addAction(cancelAction)
-        alert.addAction(saveAction)
-        
-        DispatchQueue.main.async {
-            self.present(alert, animated: true)
-        }
-        
+//        let alert = UIAlertController(title: "Add note", message: nil, preferredStyle: .alert)
+//        alert.addTextField()
+//
+//        let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
+//
+//            guard
+//                let noteBody = alert.textFields?.first?.text,
+//                let appDelegate = UIApplication.shared.delegate as? AppDelegate
+//            else { return }
+//
+//            let context = appDelegate.persistentContainer.viewContext
+//
+//            let newNote = Note(context: context)
+//            newNote.body = noteBody
+//
+//            self.notes.append(newNote)
+//            self.tableView.reloadData()
+//        }
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+//
+//        alert.addAction(cancelAction)
+//        alert.addAction(saveAction)
+//
+//        DispatchQueue.main.async {
+//            self.present(alert, animated: true)
+//        }
+//
     }
     
     //MARK: - TableView Data Source
