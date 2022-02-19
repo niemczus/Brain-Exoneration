@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
           super.viewDidLoad()
         
+        tableView.delegate = self
         tableView.dataSource = self
         loadNotes()
       }
@@ -38,11 +39,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         } catch {
             print(error)
         }
-        
-        
-        
-        
-        
     }
 
     
@@ -66,10 +62,14 @@ class ViewController: UIViewController, UITableViewDataSource {
             self.notes.append(newNote)
             self.tableView.reloadData()
         }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
+        alert.addAction(cancelAction)
         alert.addAction(saveAction)
         
-        present(alert, animated: true)
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+        }
         
     }
     
@@ -84,6 +84,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         let note = notes[indexPath.row]
         
         let cell = UITableViewCell()
+        cell.selectionStyle = .none
         
         var content = cell.defaultContentConfiguration()
         
@@ -94,6 +95,35 @@ class ViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let note = notes[indexPath.row]
+        
+        let alert = UIAlertController(title: "Update message", message: nil, preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.text = note.body
+        }
+        let updateAction = UIAlertAction(title: "Update", style: .default) { (_) in
+            guard
+                let updatedNoteBody = alert.textFields?.first?.text,
+                let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            else { return }
+            note.body = updatedNoteBody
+            appDelegate.saveContext()
+            
+            self.loadNotes()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(cancelAction)
+        alert.addAction(updateAction)
+        
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+        }
+        
+      
+    }
     
     
     
