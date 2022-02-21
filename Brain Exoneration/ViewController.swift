@@ -21,6 +21,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.delegate = self
         tableView.dataSource = self
         loadNotes()
+        
+        tableView.rowHeight = UITableView.automaticDimension
       }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -88,16 +90,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        
+//        let cell = UITableViewCell()
+//        cell.selectionStyle = .none
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell") as? NoteCell else { return UITableViewCell() }
+        
         let note = notes[indexPath.row]
         
-        let cell = UITableViewCell()
-        cell.selectionStyle = .none
-        
-        var content = cell.defaultContentConfiguration()
-        
-        content.text = note.body
-        
-        cell.contentConfiguration = content
+        cell.populate(with: note)
+
+//        var content = cell.defaultContentConfiguration()
+//        content.text = note.body
+//        cell.contentConfiguration = content
         
         return cell
     }

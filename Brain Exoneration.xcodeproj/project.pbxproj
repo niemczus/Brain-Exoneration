@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32813C9627C0F5B5003B06A6 /* NoteEditorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32813C9527C0F5B5003B06A6 /* NoteEditorVC.swift */; };
+		32813C9827C383D0003B06A6 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32813C9727C383D0003B06A6 /* NoteCell.swift */; };
 		32F4F26227BD28990084B812 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F4F26127BD28990084B812 /* AppDelegate.swift */; };
 		32F4F26427BD28990084B812 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F4F26327BD28990084B812 /* SceneDelegate.swift */; };
 		32F4F26627BD28990084B812 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F4F26527BD28990084B812 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		32813C9527C0F5B5003B06A6 /* NoteEditorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditorVC.swift; sourceTree = "<group>"; };
+		32813C9727C383D0003B06A6 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		32F4F25E27BD28990084B812 /* Brain Exoneration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Brain Exoneration.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F4F26127BD28990084B812 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32F4F26327BD28990084B812 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				32F4F27227BD289A0084B812 /* Info.plist */,
 				32F4F26A27BD28990084B812 /* Brain_Exoneration.xcdatamodeld */,
 				32813C9527C0F5B5003B06A6 /* NoteEditorVC.swift */,
+				32813C9727C383D0003B06A6 /* NoteCell.swift */,
 			);
 			path = "Brain Exoneration";
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				32F4F26427BD28990084B812 /* SceneDelegate.swift in Sources */,
 				32813C9627C0F5B5003B06A6 /* NoteEditorVC.swift in Sources */,
 				32F4F27B27BD43360084B812 /* Note+CoreDataProperties.swift in Sources */,
+				32813C9827C383D0003B06A6 /* NoteCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
