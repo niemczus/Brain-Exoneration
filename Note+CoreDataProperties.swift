@@ -2,7 +2,7 @@
 //  Note+CoreDataProperties.swift
 //  Brain Exoneration
 //
-//  Created by Kamil Niemczyk on 16/02/2022.
+//  Created by Kamil Niemczyk on 21/02/2022.
 //
 //
 
@@ -17,6 +17,7 @@ extension Note {
     }
 
     @NSManaged public var body: String
+    @NSManaged public var category: String
 
 }
 

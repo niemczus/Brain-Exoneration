@@ -23,6 +23,7 @@
 /* Begin PBXFileReference section */
 		32813C9527C0F5B5003B06A6 /* NoteEditorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditorVC.swift; sourceTree = "<group>"; };
 		32813C9727C383D0003B06A6 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		32813C9927C3C231003B06A6 /* Brain_Exoneration v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Brain_Exoneration v2.xcdatamodel"; sourceTree = "<group>"; };
 		32F4F25E27BD28990084B812 /* Brain Exoneration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Brain Exoneration.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F4F26127BD28990084B812 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32F4F26327BD28990084B812 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -385,9 +386,10 @@
 		32F4F26A27BD28990084B812 /* Brain_Exoneration.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				32813C9927C3C231003B06A6 /* Brain_Exoneration v2.xcdatamodel */,
 				32F4F26B27BD28990084B812 /* Brain_Exoneration.xcdatamodel */,
 			);
-			currentVersion = 32F4F26B27BD28990084B812 /* Brain_Exoneration.xcdatamodel */;
+			currentVersion = 32813C9927C3C231003B06A6 /* Brain_Exoneration v2.xcdatamodel */;
 			path = Brain_Exoneration.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
