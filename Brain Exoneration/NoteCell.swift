@@ -18,7 +18,7 @@ class NoteCell: UITableViewCell {
     }
     
     func populate(with note: Note) {
-        categoryLabel.text = note.category
+        categoryLabel.text = note.category?.name
         noteBodyLabel.text = note.body
     }
     

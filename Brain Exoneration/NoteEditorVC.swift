@@ -9,6 +9,7 @@ import UIKit
 
 class NoteEditorVC: UIViewController {
 
+    @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var noteTextView: UITextView!
     
     var note: Note?
@@ -23,6 +24,7 @@ class NoteEditorVC: UIViewController {
         
         if let note = note {
             noteTextView.text = note.body
+            categoryTextField.isUserInteractionEnabled = false
             navigationItem.title = "Edit note"
         }
     }
@@ -54,6 +56,10 @@ class NoteEditorVC: UIViewController {
         } else {
             let newNote = Note(context: context)
             newNote.body = noteTextView.text
+            
+            let category = Category(context: context)
+            category.name = categoryTextField.text
+            newNote.category = category
         }
         
         appDelegate.saveContext()

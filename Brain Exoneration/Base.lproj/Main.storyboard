@@ -95,24 +95,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gZM-SG-fH8">
-                                <rect key="frame" x="16" y="140" width="343" height="672"/>
+                                <rect key="frame" x="16" y="190" width="343" height="622"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z2r-oD-bRG">
+                                <rect key="frame" x="16" y="148" width="343" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uUV-mP-Akq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="uUV-mP-Akq" firstAttribute="trailing" secondItem="gZM-SG-fH8" secondAttribute="trailing" constant="16" id="01a-DU-uUL"/>
+                            <constraint firstItem="uUV-mP-Akq" firstAttribute="trailing" secondItem="Z2r-oD-bRG" secondAttribute="trailing" constant="16" id="G0a-VY-V9n"/>
                             <constraint firstItem="gZM-SG-fH8" firstAttribute="leading" secondItem="uUV-mP-Akq" secondAttribute="leading" constant="16" id="Hhl-cf-38Q"/>
+                            <constraint firstItem="gZM-SG-fH8" firstAttribute="top" secondItem="Z2r-oD-bRG" secondAttribute="bottom" constant="8" id="Q2T-8H-VcL"/>
+                            <constraint firstItem="Z2r-oD-bRG" firstAttribute="leading" secondItem="uUV-mP-Akq" secondAttribute="leading" constant="16" id="gJB-UD-1bO"/>
                             <constraint firstAttribute="bottom" secondItem="gZM-SG-fH8" secondAttribute="bottom" id="jP6-el-a3Y"/>
-                            <constraint firstItem="gZM-SG-fH8" firstAttribute="top" secondItem="uUV-mP-Akq" secondAttribute="top" id="lGC-iQ-D3q"/>
+                            <constraint firstItem="Z2r-oD-bRG" firstAttribute="top" secondItem="uUV-mP-Akq" secondAttribute="top" constant="8" id="rQY-fK-kAx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Note" id="wIC-WK-Qpn"/>
                     <connections>
+                        <outlet property="categoryTextField" destination="Z2r-oD-bRG" id="Ufy-nH-Cln"/>
                         <outlet property="noteTextView" destination="gZM-SG-fH8" id="Srf-Te-Lu9"/>
                     </connections>
                 </viewController>
