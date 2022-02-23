@@ -37,6 +37,7 @@
                                                     <rect key="frame" x="299" y="11" width="60" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="fWc-KW-A35"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="toq-Wo-Ics"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                                                     <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -46,6 +47,7 @@
                                             <constraints>
                                                 <constraint firstItem="1eI-gi-cvf" firstAttribute="leading" secondItem="HEQ-a0-xAe" secondAttribute="leadingMargin" id="8bY-rt-E0d"/>
                                                 <constraint firstItem="abv-ai-ymb" firstAttribute="trailing" secondItem="HEQ-a0-xAe" secondAttribute="trailingMargin" id="JyA-9C-qKU"/>
+                                                <constraint firstItem="abv-ai-ymb" firstAttribute="leading" relation="lessThanOrEqual" secondItem="HEQ-a0-xAe" secondAttribute="leadingMargin" constant="283" id="Yip-eq-Qi4"/>
                                                 <constraint firstItem="1eI-gi-cvf" firstAttribute="bottom" secondItem="HEQ-a0-xAe" secondAttribute="bottomMargin" id="cnA-v1-OFN"/>
                                                 <constraint firstItem="1eI-gi-cvf" firstAttribute="trailing" secondItem="HEQ-a0-xAe" secondAttribute="trailingMargin" id="das-Js-tu0"/>
                                                 <constraint firstItem="abv-ai-ymb" firstAttribute="top" secondItem="HEQ-a0-xAe" secondAttribute="topMargin" id="hms-Mi-csO"/>
@@ -66,7 +68,7 @@
                             <constraint firstItem="ZVT-Hc-HVd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="2N4-1C-XB0"/>
                             <constraint firstAttribute="bottom" secondItem="ZVT-Hc-HVd" secondAttribute="bottom" id="430-Yc-Tds"/>
                             <constraint firstItem="ZVT-Hc-HVd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="e8O-F8-HMA"/>
-                            <constraint firstItem="ZVT-Hc-HVd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zeF-5h-al8"/>
+                            <constraint firstItem="ZVT-Hc-HVd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zeF-5h-al8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Notes" id="QZ4-Pg-ERA">

@@ -145,17 +145,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
-        if editingStyle == UITableViewCell.EditingStyle.delete {
+        guard editingStyle == .delete else { return }
             
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-            let context = appDelegate.persistentContainer.viewContext
-            
-            context.delete(self.notes[indexPath.row])
-            appDelegate.saveContext()
-            
-            loadNotes()
-        }
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
         
+        let note = notes[indexPath.row]
+        
+        do {
+//            try note.validateForDelete()
+            context.delete(note)
+            try context.save()
+            
+            notes.remove(at: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+        } catch {
+            print(error)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
